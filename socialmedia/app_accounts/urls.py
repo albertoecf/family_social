@@ -9,11 +9,11 @@ app_name = 'app_accounts'
 
 urlpatterns = [
     path('login',
-         auth_views.LoginView.as_view(template_name='accounts/login_file.html'),
+         auth_views.LoginView.as_view(template_name='app_accounts/login.html'),
          name='login'),
     path('logout',
          auth_views.LogoutView.as_view(),
          name='logout'),
     path('signup',
          views.SignUp.as_view(),
-         name='signup')
+         name='signup')]

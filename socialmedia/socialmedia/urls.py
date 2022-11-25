@@ -22,12 +22,18 @@ urlpatterns = [
          admin.site.urls),
     path('',
          views.HomePage.as_view(),
-         name='home/'),
+         name='home'),
     path('accounts/',
-         include('app_accounts.urls'),
-         namespace='app_accounts'),
+         include('app_accounts.urls',
+         namespace='app_accounts')),
     path('accounts/',
          include('django.contrib.auth.urls')),
+    path('test/',
+          views.TestPage.as_view(),
+          name='test'),
+    path('thanks',
+          views.ThanksPage.as_view(),
+          name='thanks'),
 
 
 ]
