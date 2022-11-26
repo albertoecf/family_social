@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django django.http import Http404
+from django.http import Http404
 
 from django.views import generic
 from braces.views import SelectRelatedMixin
@@ -13,7 +13,7 @@ from . import forms
 
 User = get_user_model()
 # Create your views here.
-class PostList(SelectRelatedMixin, gener.ListView):
+class PostList(SelectRelatedMixin, generic.ListView):
     model = models.Post
     select_related = ('user','group')
 
@@ -36,7 +36,7 @@ class UserPost(generic.ListView):
 
 class PostDetail(SelectRelatedMixin, generic.DetailView):
     model = models.Post
-    select_related = ('user',group)
+    select_related = ('user','group')
 
     def get_queryset(self):
         queryset = super().get_queryset()

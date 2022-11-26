@@ -1,25 +1,31 @@
-from django.shortcuts import render
+from django.contrib import messages
+from django.contrib.auth.mixins import(
+    LoginRequiredMixin,
+    PermissionRequiredMixin
+)
 
-# Create your views here.
-
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import reverse
+from django.db import IntegrityError
+from django.shortcuts import get_object_or_404
 from django.views import generic
+from app_groups.models import Group,GroupMember
+from . import models
 
 
-class CreateGroup(LoginRequiredMixin, generic.CreateView ):
-    fields = ("name","description")
+class CreateGroup(LoginRequiredMixin, generic.CreateView):
+    fields = ("name", "description")
     model = Group
 
 class SingleGroup(generic.DetailView):
     model = Group
 
-class ListGroups(generic.ListView):
+class ListGroup(generic.ListView):
     model = Group
 
 class JoinGroup(LoginRequiredMixin, generic.RedirectView):
     def get_redirect_url(self, *args, **kwargs):
         return reverse("app_groups:single", kwargs={"slug":self.kwargs.get("slug")})
-    def get(self, request, *args, *kwargs):
+    def get(self, request, *args, **kwargs):
         group = get_object_or_404(Group, slug=self.kwargs.get("slug"))
         try:
             GroupMember.objects.create(user=self.request.user,group=group)
@@ -34,7 +40,7 @@ class JoinGroup(LoginRequiredMixin, generic.RedirectView):
 class LeaveGroup(LoginRequiredMixin, generic.RedirectView):
 
     def get_redirect_url(self, *args, **kwargs):
-        return reverse("groups:single",kwargs={"slug": self.kwargs.get("slug")})
+        return reverse("app_groups:single",kwargs={"slug": self.kwargs.get("slug")})
 
     def get(self, request, *args, **kwargs):
 

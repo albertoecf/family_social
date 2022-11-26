@@ -1,5 +1,5 @@
 from django.conf import settings
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.db import models
 from django.utils.text import slugify
 # from accounts.models import User
@@ -26,11 +26,11 @@ class Group(models.Model):
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
-        self.description_html = misaka.html(description)
+        self.description_html = misaka.html(self.description)
         super().save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return reverse("app_group:single", kwargs={"slug":self.slug})
+        return reverse("app_groups:single", kwargs={"slug":self.slug})
 
     class Meta:
         ordering = ["name"]
