@@ -25,7 +25,7 @@ urlpatterns = [
          name='home'),
     path('accounts/',
          include('app_accounts.urls',
-         namespace='app_accounts')),
+                 namespace='app_accounts')),
     path('accounts/',
          include('django.contrib.auth.urls')),
     path('test/',
@@ -34,6 +34,10 @@ urlpatterns = [
     path('thanks',
           views.ThanksPage.as_view(),
           name='thanks'),
-
-
+    path('posts/',
+         include(('app_posts.urls','app_posts'),
+                 namespace='app_posts')),
+    path('groups/',
+         include(('app_groups.urls','app_groups'),
+                 namespace='app_groups')),
 ]

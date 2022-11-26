@@ -25,12 +25,12 @@
         <a class="navbar-brand mynav" href="{% url 'home' %}">TheKitchen</a>
         <ul class="nav navbar-nav navbar-right">
           {% if user.is_authenticated %}
-              <li> <a href="#">Post</a> </li>
-              <li> <a href="#">Groups</a> </li>
-              <li> <a href="#">Create Group</a> </li>
+              <li> <a href="{% url 'app_posts:create' %}">Post</a> </li>
+              <li> <a href="{% url 'app_groups:all' %}">Groups</a> </li>
+              <li> <a href="{% url 'app_groups:create' %}">Create Group</a> </li>
               <li> <a href="{% url 'app_accounts:logout' %}">Logout</a> </li>
           {% else %}
-              <li> <a href="#">Groups</a> </li>
+              <li> <a href="{% url 'app_groups:all' %}">Groups</a> </li>
               <li> <a href="{% url 'app_accounts:login' %}">Log In</a></li>
               <li> <a href="{% url 'app_accounts:signup' %}">Sign Up</a></li>
           {% endif %}
