@@ -1,0 +1,6 @@
+1. create html file
+2. set up html head and body
+3. Test basic paragraph
+4. Add header and subheader
+5. Add in paragraph
+6. Add in formating 
