@@ -1,0 +1,19 @@
+H1 {
+  text-align: center;
+  background-color: aqua;
+}
+
+body {
+    text-align: center;
+}
+form {
+    display: inline-block;
+}
+
+#question_p {
+  border: 4px sollid blue;
+}
+
+input {
+  border: 2px solid black;
+}
