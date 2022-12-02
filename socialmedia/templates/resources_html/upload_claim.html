@@ -5,31 +5,28 @@
     <title></title>
   </head>
   <body>
-      <h1>Register</h1>
-      <form class="" action="index.html" method="post">
-        <label for="fname">First name:</label><br>
-        <input type="text" id="fname" name="fname" placeholder="your name">
-
-        <br><label for="lname">Last name:</label><br>
-        <input type="text" id="lname" name="lname" placeholder="lastname">
-
-        <br><label for="email">Email:</label><br>
-        <input type="email" id='email' name="email" placeholder="youremail@email.com">
-
-        <br><label for="psw">Password</label><br>
-        <input type="password" id='psw' name='psw'>
-
-
+      <h1>Let's analyse damages</h1>
+      <h5>Please, fill required information</h5>
+      <form class="" action="match.html" method="post">
+      <label for="vehicle">Select your vehicle</label>
+      <br><select name="vehicle" id="vehicle">
+        <option value="golf">Golf 2011</option>
+        <option value="hilux">Hilux</option>
+        <option value="tesla3">Tesla3</option>
+        <option value="ford_f150">Ford 150</option>
+      </select>
+        <br>
+        <h5>Please upload your vehicle pictures</h5>
+        <br>
+        <label for="car_pic">Choose a profile picture:</label>
+        <br>
+        <br>
+        <input type="file"
+          id="car_pic" name="car_pic"
+          accept="image/png, image/jpeg">
 
         <br><br><input type="submit" value="Submit">
       </form>
-      <p>You can listen some music while completing the form</p>
-      <br>
-      <iframe width="560" height="315"
-              src="https://www.youtube.com/embed/1vwfaemreeI"
-              title="YouTube video player" frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media;
-              picture-in-picture" allowfullscreen>
-      </iframe>
+
   </body>
 </html>
